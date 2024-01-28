@@ -9,6 +9,10 @@ for line in sys.stdin:
     # split the line into words; splits on any whitespace
     words = line.split()
 
+    # create list of stopwords
+    stopwords = set(['a','an','and','are','as','at','be','but','by','for','if','in','into','is','it','no','not','of','on','or','such','that','the','their','then','there','these','they','this','to','was','will','with',',','.','?','!'])
+
     # output tuples (word, 1) in tab-delimited format
     for word in words:
-        print '%s\t%s' % (word, "1")
+        if word not in stopwords:
+          print '%s\t%s' % (word, "1")
